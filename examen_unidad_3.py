@@ -15,7 +15,7 @@ vars["timeout"] = 1000
 
 
 res={}
-def consultar_materias():
+def Materias_estudiante():
     obj_PyMongo = PyMongo(vars)
 
     ctrl = input("Dame el número de control: ")
@@ -51,4 +51,4 @@ def consultar_materias():
     jsontext=json.dumps(diccionario,indent=4)
     print(jsontext)
 
-consultar_materias()
+Materias_estudiante()
