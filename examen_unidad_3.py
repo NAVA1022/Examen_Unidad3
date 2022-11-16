@@ -2,7 +2,7 @@ import json
 
 from mongodb import PyMongo
 
-# Juan Jose Navarrete Garibay  NC:18420470
+# Juan Jose Navarrete Garibay  
 
 vars = {}
 vars["host"] = "localhost"
