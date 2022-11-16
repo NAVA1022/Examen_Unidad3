@@ -2,6 +2,8 @@ import json
 
 from mongodb import PyMongo
 
+# Juan Jose Navarrete Garibay  NC:18420470
+
 vars = {}
 vars["host"] = "localhost"
 vars ["user"] = ""
@@ -25,8 +27,6 @@ def consultar_materias():
     obj_PyMongo.conectar_mongodb()
     respuesta1 = obj_PyMongo.consulta_mongodb('estudiantes', filtro, atributos_est)
     respuesta2 = obj_PyMongo.consulta_mongodb('kardex', filtro, atributos_mat)
-    print(respuesta1)
-    print(respuesta2)
 
     obj_PyMongo.desconectar_mongodb()
     print()
@@ -34,11 +34,17 @@ def consultar_materias():
     if respuesta1["status"] and respuesta2["status"]:
         h=respuesta1["resultado"][0]["nombre"]
 
-        print(h)
+
         diccionario["Estudiante"]= h
-        diccionario2={}
+
+        arreglo=[]
         for mat in respuesta2["resultado"]:
-            print("   ", mat["materia"], mat["calificacion"])
+            diccionario2 = {}
+            diccionario2["Materia"] = mat["materia"]
+            diccionario2["Calificacion"]=mat["calificacion"]
+            arreglo.append(diccionario2)
+
+        diccionario["Materias"]=arreglo
     else:
         print("No encontrado")
 
